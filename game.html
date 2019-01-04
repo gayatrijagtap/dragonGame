@@ -1,27 +1,43 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <style>
+      body {
+        background-image: url("./back.jpg");
+        background-attachment: fixed;
+        background-size: cover;
+      }
+    </style>
     <title>Page Title</title>
     <script src="main.js"></script>
   </head>
-  <body onkeypress="rotate()">
+  <body
+    onkeypress="
+  if(event.key=='j') {
+    jump();
+  }
+  if(event.key==' ') {
+    rotate();
+  }
+  "
+  >
+    <button id="score" style="height:30px;width:60px">Score</button>
     <img
-      onclick="jump()"
       id="dragon"
-      src="./dragonSprite.png"
-      style="margin-left:0px;position:absolute;height:70px;width:70px;bottom:2px;"
+      src="./dinosour2.png"
+      style="margin-left:0px;position:absolute;height:70px;width:70px;bottom:0px;left: 0px"
     />
     <div
       id="1"
-      style="margin-left: 473px; position: absolute; height: 76.6343px; width: 15px; bottom: 2px; background-color: rgb(219, 100, 21);"
+      style="margin-left: 300px; position: absolute; height: 76.6343px; width: 15px; bottom: 2px; background-color:black"
     ></div>
     <div
       id="2"
-      style="margin-left: 972px; position: absolute; height: 62.3342px; width: 15px; bottom: 2px; background-color: rgb(219, 100, 21);"
+      style="margin-left: 900px; position: absolute; height: 62.3342px; width: 15px; bottom: 2px; background-color:black"
     ></div>
     <div
       id="3"
-      style="margin-left: 72px; position: absolute; height: 65.8797px; width: 15px; bottom: 2px; background-color: rgb(219, 100, 21);"
+      style="margin-left: 1300px; position: absolute; height: 65.8797px; width: 15px; bottom: 2px; background-color:black"
     ></div>
   </body>
 </html>

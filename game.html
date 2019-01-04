@@ -2,37 +2,12 @@
 <html>
   <head>
     <title>Page Title</title>
-    <script>
-      let margin = 0;
-      const rotate = function() {
-        setInterval(function() {
-          for (let i = 1; i <= 3; i++) {
-            margin =
-              +document.getElementById(i).style.marginLeft.replace("px", "") -
-              1;
-            if (margin <= 0) {
-              document.getElementById(i).style.height =
-                Math.random() * (100 - 50) + 50 + "px";
-              margin = 1400;
-            }
-            document.getElementById(i).style.marginLeft = margin + "px";
-          }
-        }, 0.5);
-      };
-      const jump = function() {
-        setTimeout(() => {
-          document.getElementById("dragon").style.bottom =
-            +document.getElementById("dragon").style.bottom + 2 + "px";
-        }, 1000);
-        setTimeout(() => {
-          document.getElementById("dragon").style.bottom =
-            +document.getElementById("dragon").style.bottom - 2 + "px";
-        }, 1000);
-      };
-    </script>
+    <script src="main.js"></script>
   </head>
-  <body onkeypress="rotate()" onclick="jump()">
+  <body onkeypress="rotate()">
     <img
+      onclick="jump()"
+      id="dragon"
       src="./dragonSprite.png"
       style="margin-left:0px;position:absolute;height:70px;width:70px;bottom:2px;"
     />

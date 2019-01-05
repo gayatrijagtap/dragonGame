@@ -1,14 +1,21 @@
+let rotInt;
 value = 0;
 const rotate = function() {
   if (event.key == " ") {
-    setInterval(function() {
+    rotInt = setInterval(function() {
       for (let i = 1; i <= 3; i++) {
         if (
           +document.getElementById("dragon").style.bottom.replace("px", "") <
             100 &&
           +document.getElementById(i).style.marginLeft.replace("px", "") < 50
         ) {
-          alert("game over!");
+          clearInterval(rotInt);
+          alert(
+            "Game Over!!\nYour Score : " +
+              value +
+              "\nDo you want to play again?"
+          );
+          document.location.reload();
         }
         margin =
           +document.getElementById(i).style.marginLeft.replace("px", "") - 1;

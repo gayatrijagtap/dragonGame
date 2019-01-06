@@ -9,13 +9,17 @@ const rotate = function() {
             100 &&
           +document.getElementById(i).style.marginLeft.replace("px", "") < 50
         ) {
+          document.getElementById("dragon").style.webkitTransform =
+            "rotate(-30deg)";
           clearInterval(rotInt);
-          alert(
-            "Game Over!!\nYour Score : " +
-              value +
-              "\nDo you want to play again?"
-          );
-          document.location.reload();
+          setTimeout(() => {
+            alert(
+              "Game Over!!\nYour Score : " +
+                value +
+                "\nDo you want to play again?"
+            );
+            document.location.reload();
+          }, 1);
         }
         margin =
           +document.getElementById(i).style.marginLeft.replace("px", "") - 1;

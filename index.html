@@ -11,17 +11,7 @@
     <title>Page Title</title>
     <script src="main.js"></script>
   </head>
-  <body
-    id="bd"
-    onkeypress="
-  if(event.key=='j') {
-    jump();
-  }
-  if(event.key==' ') {
-    rotate();
-  }
-  "
-  >
+  <body id="bd" onkeypress="decideMovement(event);">
     <button id="score" style="height:30px;width:60px">Score</button>
     <img
       id="dragon"

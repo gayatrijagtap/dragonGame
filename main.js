@@ -1,5 +1,4 @@
-let rotInt;
-value = 0;
+let value = 0;
 
 const getDimension = function(element, attribute) {
   return +element.style[attribute].replace("px", "");
@@ -12,7 +11,7 @@ const getElement = function(id) {
 const decideMovement = function(event) {
   let events = new Object();
   events[" "] = startDragonRun;
-  events["j"] = jump;
+  events["j"] = jumpDragon;
   events[event.key]();
 };
 
@@ -22,13 +21,13 @@ const gameOver = function(dragonBottom, barMarginLeft, interval) {
   if (dragonBottom < maxBarHeight && barMarginLeft < barMarginLimit) {
     dragon.style.webkitTransform = "rotate(-30deg)";
     clearInterval(interval);
-    setTimeout(() => {
-      alert(
-        "Game Over!!\nYour Score : " + value + "\nDo you want to play again?"
-      );
-      document.location.reload();
-    }, 1);
+    let gameEnd = getElement("gameOver");
+    gameEnd.style.display = "inline";
   }
+};
+
+const reload = function() {
+  document.location.reload();
 };
 
 const startDragonRun = function() {
@@ -57,9 +56,11 @@ const moveBar = function(barId, barMarginLeft) {
   return barMargin;
 };
 
-const jump = function() {
-  document.getElementById("dragon").style.bottom = 100 + "px";
+const jumpDragon = function() {
+  let jumpTime = 400;
+  let jumpHeight = 100;
+  document.getElementById("dragon").style.bottom = jumpHeight + "px";
   setTimeout(() => {
     document.getElementById("dragon").style.bottom = -10 + "px";
-  }, 400);
+  }, jumpTime);
 };

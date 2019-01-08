@@ -13,6 +13,21 @@
         bottom: 2px;
         background-color: black;
       }
+
+      .gameEnd {
+        margin-left: 500px;
+        top: 300px;
+        position: absolute;
+        font-size: 100px;
+        display: none;
+      }
+
+      .reload {
+        margin-left: 180px;
+        height: 50px;
+        width: 70px;
+        border-radius: 5px;
+      }
     </style>
     <title>Page Title</title>
     <script src="main.js"></script>
@@ -39,5 +54,8 @@
       style="margin-left: 1300px; position: absolute; height: 65.8797px"
       class="bar"
     ></div>
+    <div id="gameOver" class="gameEnd">
+      game over<br /><button onclick="reload();" class="reload">replay</button>
+    </div>
   </body>
 </html>

@@ -1,0 +1,26 @@
+body {
+  background-image: url("/dragonGame/images/background.jpg");
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.bar {
+  width: 15px;
+  bottom: 2px;
+  background-color: black;
+}
+
+.gameEnd {
+  margin-left: 500px;
+  top: 300px;
+  position: absolute;
+  font-size: 100px;
+  display: none;
+}
+
+.reload {
+  margin-left: 180px;
+  height: 50px;
+  width: 70px;
+  border-radius: 5px;
+}

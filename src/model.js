@@ -5,28 +5,24 @@ const exportFunction = (function() {
     return +element.style[attribute].replace("px", "");
   };
 
-  const getElement = function(id) {  //shouldn't use generic function for this.can use independent function for each element.
+  const getElement = function(id) {
     return document.getElementById(id);
   };
 
-  const decideMovement = function(event) { //controller stuff
-    let events = new Object();
-    events[" "] = runDragon;
-    events["j"] = jumpDragon;
-    events[event.key]();
+  const runBar = function(dragonBottom, interval, barId) {
+    let bar = getElement(barId);
+    let barMarginLeft = getDimension(bar, "marginLeft");
+    gameOver(dragonBottom, barMarginLeft, interval);
+    barMargin = moveBar(barId, barMarginLeft);
+    document.getElementById(barId).style.marginLeft = barMargin + "px";
   };
 
-  const runDragon = function() {
+  const runDragon = function(dragon) {
+    let bars = ["bar1", "bar2", "bar3"];
     let interval = setInterval(function() {
-      for (let barId = 1; barId <= 3; barId++) {
-        let dragon = getElement("dragon");
-        let dragonBottom = getDimension(dragon, "bottom");
-        let bar = getElement(barId.toString());
-        let barMarginLeft = getDimension(bar, "marginLeft");
-        gameOver(dragonBottom, barMarginLeft, interval);
-        barMargin = moveBar(barId, barMarginLeft);
-        document.getElementById(barId).style.marginLeft = barMargin + "px";
-      }
+      let dragonBottom = getDimension(dragon, "bottom");
+      const runBars = runBar.bind(null, dragonBottom, interval);
+      bars.map(runBars);
     }, 2);
   };
 
@@ -42,12 +38,12 @@ const exportFunction = (function() {
     return barMargin;
   };
 
-  const jumpDragon = function() {
+  const jumpDragon = function(dragon) {
     let jumpTime = 400;
     let jumpHeight = 100;
-    document.getElementById("dragon").style.bottom = jumpHeight + "px";
+    dragon.style.bottom = jumpHeight + "px";
     setTimeout(() => {
-      document.getElementById("dragon").style.bottom = -10 + "px";
+      dragon.style.bottom = -10 + "px";
     }, jumpTime);
   };
 
@@ -62,9 +58,5 @@ const exportFunction = (function() {
     }
   };
 
-  const reload = function() {
-    document.location.reload();
-  };
-
-  return { decideMovement, reload };
+  return { runDragon, jumpDragon };
 })();

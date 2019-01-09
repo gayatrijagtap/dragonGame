@@ -3,9 +3,10 @@
   <head>
     <link rel="stylesheet" href="/dragonGame/style_sheet/style.css" />
     <title>Page Title</title>
-    <script src="/dragonGame/src/main.js"></script>
+    <script src="/dragonGame/src/model.js"></script>
+    <script src="/dragonGame/src/controller.js"></script>
   </head>
-  <body id="bd" onkeypress="exportFunction.decideMovement(event);">
+  <body id="bd">
     <button id="score" style="height:30px;width:60px">Score</button>
     <img
       id="dragon"
@@ -13,24 +14,22 @@
       style="margin-left:0px;position:absolute;height:70px;width:70px;bottom:0px;left: 0px"
     />
     <div
-      id="1"
+      id="bar1"
       style="margin-left: 300px; position: absolute; height: 76.6343px"
       class="bar"
     ></div>
     <div
-      id="2"
+      id="bar2"
       style="margin-left: 900px; position: absolute; height: 62.3342px"
       class="bar"
     ></div>
     <div
-      id="3"
+      id="bar3"
       style="margin-left: 1300px; position: absolute; height: 65.8797px"
       class="bar"
     ></div>
     <div id="gameOver" class="gameEnd">
-      game over<br /><button onclick="exportFunction.reload();" class="reload">
-        replay
-      </button>
+      game over<br /><button id="reload" class="reload">replay</button>
     </div>
   </body>
 </html>
